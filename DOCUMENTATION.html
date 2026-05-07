@@ -1,0 +1,927 @@
+<!DOCTYPE html>
+<html xmlns:o="urn:schemas-microsoft-com:office:office"
+      xmlns:w="urn:schemas-microsoft-com:office:word"
+      xmlns="http://www.w3.org/TR/REC-html40">
+<head>
+<meta charset="UTF-8">
+<meta name:progid content="Word.Document">
+<meta name:Generator content="Microsoft Word">
+<meta name:Originator content="Microsoft Word">
+<title>TUNEDIK Alumni Management System — Documentation</title>
+
+<style>
+  /* Page setup */
+  @page {
+    size: A4;
+    margin: 2.54cm 2.54cm 2.54cm 2.54cm;
+    mso-header-margin: 1.25cm;
+    mso-footer-margin: 1.25cm;
+    mso-page-numbers: 1;
+  }
+
+  body {
+    font-family: "Calibri", sans-serif;
+    font-size: 11pt;
+    color: #1a1a1a;
+    line-height: 1.5;
+    margin: 0;
+    padding: 0;
+  }
+
+  /* Cover page */
+  .cover {
+    text-align: center;
+    padding-top: 120pt;
+    page-break-after: always;
+  }
+  .cover-logo {
+    font-size: 48pt;
+    color: #1a3a5c;
+    font-weight: 900;
+    letter-spacing: 2pt;
+    margin-bottom: 8pt;
+  }
+  .cover-subtitle {
+    font-size: 18pt;
+    color: #1a3a5c;
+    margin-bottom: 6pt;
+  }
+  .cover-line {
+    width: 200pt;
+    height: 3pt;
+    background: #f9a825;
+    margin: 20pt auto;
+    border: none;
+  }
+  .cover-meta {
+    font-size: 11pt;
+    color: #555;
+    margin-top: 6pt;
+    line-height: 2;
+  }
+  .cover-url {
+    font-size: 13pt;
+    color: #1a3a5c;
+    font-weight: bold;
+    margin-top: 20pt;
+  }
+  .cover-footer {
+    position: absolute;
+    bottom: 60pt;
+    width: 100%;
+    text-align: center;
+    font-size: 9pt;
+    color: #aaa;
+  }
+
+  /* Headings */
+  h1 {
+    font-family: "Calibri", sans-serif;
+    font-size: 22pt;
+    font-weight: 700;
+    color: #1a3a5c;
+    border-bottom: 3pt solid #f9a825;
+    padding-bottom: 6pt;
+    margin-top: 24pt;
+    margin-bottom: 12pt;
+    page-break-after: avoid;
+  }
+  h2 {
+    font-family: "Calibri", sans-serif;
+    font-size: 14pt;
+    font-weight: 700;
+    color: #1a3a5c;
+    margin-top: 18pt;
+    margin-bottom: 8pt;
+    page-break-after: avoid;
+    border-left: 4pt solid #f9a825;
+    padding-left: 8pt;
+  }
+  h3 {
+    font-family: "Calibri", sans-serif;
+    font-size: 12pt;
+    font-weight: 700;
+    color: #0d2237;
+    margin-top: 14pt;
+    margin-bottom: 6pt;
+    page-break-after: avoid;
+  }
+
+  /* Paragraphs */
+  p {
+    margin: 0 0 8pt 0;
+    orphans: 2;
+    widows: 2;
+  }
+
+  /* Table of Contents */
+  .toc {
+    background: #f8f9fb;
+    border: 1pt solid #dde3ec;
+    border-radius: 4pt;
+    padding: 16pt 20pt;
+    margin: 16pt 0 24pt 0;
+    page-break-after: always;
+  }
+  .toc-title {
+    font-size: 14pt;
+    font-weight: 700;
+    color: #1a3a5c;
+    margin-bottom: 12pt;
+  }
+  .toc a {
+    display: block;
+    color: #1a3a5c;
+    text-decoration: none;
+    padding: 3pt 0;
+    font-size: 11pt;
+  }
+  .toc-main { font-weight: 600; border-bottom: 1pt solid #e8ecf0; margin-bottom: 2pt; padding-bottom: 4pt; }
+  .toc-sub  { padding-left: 20pt; color: #555; font-size: 10.5pt; }
+
+  /* Tables */
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 10pt 0 14pt 0;
+    font-size: 10.5pt;
+  }
+  thead tr {
+    background-color: #1a3a5c;
+    color: #ffffff;
+  }
+  thead th {
+    padding: 7pt 10pt;
+    text-align: left;
+    font-weight: 600;
+    border: 1pt solid #1a3a5c;
+  }
+  tbody tr:nth-child(even) { background: #f4f6fa; }
+  tbody tr:nth-child(odd)  { background: #ffffff; }
+  tbody td {
+    padding: 6pt 10pt;
+    border: 1pt solid #d4d8e2;
+    vertical-align: top;
+  }
+  .check { color: #1a3a5c; font-weight: bold; text-align: center; }
+  .dash  { color: #bbb; text-align: center; }
+
+  /* Lists */
+  ul, ol {
+    margin: 6pt 0 10pt 0;
+    padding-left: 22pt;
+  }
+  li { margin-bottom: 4pt; }
+
+  /* Code / monospace */
+  code {
+    font-family: "Courier New", monospace;
+    font-size: 10pt;
+    background: #f4f6fa;
+    padding: 1pt 4pt;
+    border: 1pt solid #dde3ec;
+  }
+  pre {
+    font-family: "Courier New", monospace;
+    font-size: 10pt;
+    background: #f4f6fa;
+    border: 1pt solid #dde3ec;
+    padding: 10pt 12pt;
+    margin: 8pt 0 12pt 0;
+    white-space: pre-wrap;
+  }
+
+  /* Callout boxes */
+  .note {
+    background: #e8f0fe;
+    border-left: 4pt solid #1a3a5c;
+    padding: 8pt 12pt;
+    margin: 10pt 0;
+    font-size: 10.5pt;
+    color: #1a1a1a;
+  }
+  .warn {
+    background: #fff8e1;
+    border-left: 4pt solid #f9a825;
+    padding: 8pt 12pt;
+    margin: 10pt 0;
+    font-size: 10.5pt;
+  }
+
+  /* Section divider */
+  .section-break {
+    page-break-before: always;
+  }
+
+  /* Role badge */
+  .role {
+    display: inline-block;
+    background: #1a3a5c;
+    color: #fff;
+    font-size: 9pt;
+    font-weight: 700;
+    padding: 1pt 6pt;
+    border-radius: 3pt;
+    text-transform: uppercase;
+    letter-spacing: .5pt;
+  }
+
+  /* Footer */
+  .doc-footer {
+    margin-top: 40pt;
+    border-top: 1pt solid #dde3ec;
+    padding-top: 8pt;
+    font-size: 9pt;
+    color: #aaa;
+    text-align: center;
+  }
+</style>
+</head>
+<body>
+
+<!-- ═══════════════════════════════════════════
+     COVER PAGE
+═══════════════════════════════════════════ -->
+<div class="cover">
+  <div class="cover-logo">TUNEDIK</div>
+  <div class="cover-subtitle">Alumni Management System</div>
+  <hr class="cover-line">
+  <div style="font-size:20pt;font-weight:700;color:#0d2237;margin-bottom:10pt;">
+    Complete System Documentation
+  </div>
+  <div class="cover-meta">
+    Version 1.0<br>
+    Platform: PHP 8.0+ &nbsp;/&nbsp; MySQL 5.7+ &nbsp;/&nbsp; Bootstrap 5.3<br>
+    Date: April 2026
+  </div>
+  <div class="cover-url">&#127760; alumni.wedev.com.ng</div>
+</div>
+
+
+<!-- ═══════════════════════════════════════════
+     TABLE OF CONTENTS
+═══════════════════════════════════════════ -->
+<div class="toc">
+  <div class="toc-title">&#128196; Table of Contents</div>
+
+  <a href="#s1" class="toc-main">1. System Overview</a>
+  <a href="#s2" class="toc-main">2. User Roles</a>
+  <a href="#s3" class="toc-main">3. Getting Started</a>
+  <a href="#s3a" class="toc-sub">3.1 Registration</a>
+  <a href="#s3b" class="toc-sub">3.2 First Login &amp; 2FA</a>
+  <a href="#s3c" class="toc-sub">3.3 Paying for Membership</a>
+
+  <a href="#s4" class="toc-main">4. Member Features</a>
+  <a href="#s4a"  class="toc-sub">4.1 Dashboard</a>
+  <a href="#s4b"  class="toc-sub">4.2 Profile Management</a>
+  <a href="#s4c"  class="toc-sub">4.3 Membership ID Card</a>
+  <a href="#s4d"  class="toc-sub">4.4 Member Directory</a>
+  <a href="#s4e"  class="toc-sub">4.5 Announcements</a>
+  <a href="#s4f"  class="toc-sub">4.6 Events</a>
+  <a href="#s4g"  class="toc-sub">4.7 Forum</a>
+  <a href="#s4h"  class="toc-sub">4.8 Elections</a>
+  <a href="#s4i"  class="toc-sub">4.9 Committees</a>
+  <a href="#s4j"  class="toc-sub">4.10 Donations</a>
+  <a href="#s4k"  class="toc-sub">4.11 Payment History</a>
+  <a href="#s4l"  class="toc-sub">4.12 Birthday Celebrations</a>
+
+  <a href="#s5" class="toc-main">5. Admin Features</a>
+  <a href="#s6" class="toc-main">6. Financial Secretary Features</a>
+  <a href="#s7" class="toc-main">7. NEC Member Features</a>
+  <a href="#s8" class="toc-main">8. System Settings</a>
+  <a href="#s9" class="toc-main">9. Security Features</a>
+  <a href="#s10" class="toc-main">10. Membership ID Format</a>
+  <a href="#s11" class="toc-main">11. Permissions Quick Reference</a>
+</div>
+
+
+<!-- ═══════════════════════════════════════════
+     SECTION 1
+═══════════════════════════════════════════ -->
+<h1 id="s1">1. System Overview</h1>
+
+<p>TUNEDIK Alumni Management System is a web-based platform that manages the full lifecycle of alumni membership — from registration and payment, through community engagement, to elections and financial reporting.</p>
+
+<p>It is a <strong>role-based system</strong>, meaning each user sees only the features relevant to their assigned role. The platform is hosted at <strong>alumni.wedev.com.ng</strong> and is accessible from any device with a web browser.</p>
+
+<p>Key capabilities of the system include:</p>
+<ul>
+  <li>Member registration, login, and profile management</li>
+  <li>Online and offline membership fee payment</li>
+  <li>Automatic Membership ID generation upon payment</li>
+  <li>Digital ID card with QR code verification</li>
+  <li>Community tools: forum, announcements, events, committees</li>
+  <li>Full elections workflow — from applications to voting to results</li>
+  <li>Donation campaigns for members and projects</li>
+  <li>Admin panel for complete system management</li>
+  <li>Financial reporting and payment audit trail</li>
+  <li>Birthday celebration feature on the home page</li>
+</ul>
+
+
+<!-- ═══════════════════════════════════════════
+     SECTION 2
+═══════════════════════════════════════════ -->
+<h1 id="s2" class="section-break">2. User Roles</h1>
+
+<p>The system has four distinct roles. Each role has a specific set of permissions and sees a tailored interface.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="width:20%">Role</th>
+      <th>Description</th>
+      <th style="width:25%">Access Level</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>Member</strong></td>
+      <td>Standard registered alumni. Can pay dues, view their ID card, participate in elections, join the forum, donate, and manage their profile.</td>
+      <td>Member area only</td>
+    </tr>
+    <tr>
+      <td><strong>Admin</strong></td>
+      <td>Full system access. Manages all users, settings, content, payments, elections, committees, and reports.</td>
+      <td>All areas + Admin Panel</td>
+    </tr>
+    <tr>
+      <td><strong>Financial Secretary</strong></td>
+      <td>Manages payment verification and financial reporting. Approves or rejects offline payments and exports financial data.</td>
+      <td>Member area + Finance Panel</td>
+    </tr>
+    <tr>
+      <td><strong>NEC Member</strong></td>
+      <td>National Executive Committee member. Manages elections — creates positions, reviews applications, announces candidates, and views results.</td>
+      <td>Member area + NEC Panel</td>
+    </tr>
+  </tbody>
+</table>
+
+<div class="note">
+  <strong>Note:</strong> A user can only hold one role at a time. Roles are assigned by the Admin from the User Management panel.
+</div>
+
+
+<!-- ═══════════════════════════════════════════
+     SECTION 3
+═══════════════════════════════════════════ -->
+<h1 id="s3" class="section-break">3. Getting Started</h1>
+
+<h2 id="s3a">3.1 Registration</h2>
+<ol>
+  <li>Visit the homepage at <strong>alumni.wedev.com.ng</strong> and click <strong>Register</strong></li>
+  <li>Fill in your personal details: First Name, Last Name, Email, Phone, State, Department, Graduation Year, and Password</li>
+  <li>Accept the Terms &amp; Conditions</li>
+  <li>Click <strong>Submit</strong> — a welcome email is sent to your email address</li>
+  <li>Your account is created with <em>Member</em> role and <em>pending</em> membership status</li>
+</ol>
+
+<h2 id="s3b">3.2 First Login &amp; 2FA</h2>
+<ol>
+  <li>Go to <strong>Login</strong> and enter your email and password</li>
+  <li>If Two-Factor Authentication (2FA) is enabled on your account, a 6-digit OTP is sent to your email</li>
+  <li>Enter the OTP on the verification screen (expires in 10 minutes)</li>
+  <li>You are redirected to your member dashboard</li>
+</ol>
+<div class="warn">
+  <strong>Security:</strong> After 5 failed login attempts, your account is temporarily locked for 15 minutes. Contact the admin if you are locked out.
+</div>
+
+<h2 id="s3c">3.3 Paying for Membership</h2>
+<ol>
+  <li>From your dashboard, click <strong>Pay Dues</strong></li>
+  <li>Choose a payment method:
+    <ul>
+      <li><strong>Paystack</strong> — pay online with debit card or bank transfer. Membership is activated instantly on payment.</li>
+      <li><strong>Bank Transfer</strong> — transfer to the organisation's bank account and upload your payment receipt. Membership is activated after the Financial Secretary or Admin approves the receipt.</li>
+    </ul>
+  </li>
+  <li>On activation, your unique Membership ID is generated and displayed on your ID card</li>
+</ol>
+
+
+<!-- ═══════════════════════════════════════════
+     SECTION 4
+═══════════════════════════════════════════ -->
+<h1 id="s4" class="section-break">4. Member Features</h1>
+<p>The following features are available to all logged-in members (regardless of role).</p>
+
+<h2 id="s4a">4.1 Dashboard</h2>
+<p>The member dashboard is the main landing page after login. It displays:</p>
+<ul>
+  <li>Membership status card: <em>Active</em>, <em>Pending</em>, or <em>Expired</em> — with days remaining</li>
+  <li>Quick navigation grid to all key sections</li>
+  <li>Active election alerts — positions open for application or voting</li>
+  <li>Profile completeness percentage with a list of missing fields</li>
+  <li>2FA security toggle (enable/disable)</li>
+  <li>Recent donation history</li>
+</ul>
+
+<h2 id="s4b">4.2 Profile Management</h2>
+<p>Members can update their profile from <strong>Profile</strong> in the account sidebar. The following can be managed:</p>
+<table>
+  <thead><tr><th>Field</th><th>Description</th></tr></thead>
+  <tbody>
+    <tr><td>First &amp; Last Name</td><td>Full name shown throughout the system</td></tr>
+    <tr><td>Phone Number</td><td>Contact phone</td></tr>
+    <tr><td>State &amp; Country</td><td>Location information</td></tr>
+    <tr><td>Department</td><td>Academic department</td></tr>
+    <tr><td>Graduation Year</td><td>Year of graduation</td></tr>
+    <tr><td>Matric Number</td><td>Student matriculation number</td></tr>
+    <tr><td>Current Job Role</td><td>Occupation — shown on ID card and directory</td></tr>
+    <tr><td>Date of Birth</td><td>Used for birthday celebrations on the home page</td></tr>
+    <tr><td>Profile Picture</td><td>Photo — JPEG/PNG/GIF/WebP, max 2 MB</td></tr>
+    <tr><td>Signature</td><td>Signature image for the ID card — PNG/JPG/GIF/WebP, max 2 MB</td></tr>
+    <tr><td>Password</td><td>Change from current to a new password</td></tr>
+  </tbody>
+</table>
+<p>A <strong>profile completeness</strong> tracker monitors 9 key fields and shows a percentage — members are encouraged to complete their profiles.</p>
+
+<h2 id="s4c">4.3 Membership ID Card</h2>
+<p>Active members can view and print their digital membership ID card from <strong>My ID Card</strong>. The card follows the ISO/IEC 7810 ID-1 standard (credit card size: 85.6 × 54 mm).</p>
+
+<p><strong>Front of card includes:</strong></p>
+<ul>
+  <li>Organisation logo and name</li>
+  <li>Member's circular passport photo</li>
+  <li>Full name, job role</li>
+  <li>Membership ID, email, department, phone</li>
+  <li>Member's signature</li>
+  <li>Membership validity period</li>
+</ul>
+
+<p><strong>Back of card includes:</strong></p>
+<ul>
+  <li>QR code — links to the member's public profile page</li>
+  <li>Organisation logo and name</li>
+  <li>Back content text (set by admin)</li>
+  <li>President's signature</li>
+</ul>
+
+<p>The card is printable on A4 portrait paper. Anyone who scans the QR code can view the member's public profile (name, membership ID, department, job role, validity) without needing to log in.</p>
+
+<h2 id="s4d">4.4 Member Directory</h2>
+<ul>
+  <li>Browse all active members</li>
+  <li>Search by name or department</li>
+  <li>Filter by state or graduation year</li>
+  <li>18 members per page with pagination</li>
+  <li>Each card shows: name, photo, department, state, membership ID, job role</li>
+</ul>
+
+<h2 id="s4e">4.5 Announcements (Notices)</h2>
+<ul>
+  <li>View all published announcements from the administration</li>
+  <li>Colour-coded priority levels: <strong>Normal</strong>, <strong>Important</strong>, <strong>Urgent</strong></li>
+  <li>Announcements may have scheduled publish dates and expiry dates</li>
+</ul>
+
+<h2 id="s4f">4.6 Events</h2>
+<ul>
+  <li>View all upcoming and past events</li>
+  <li>RSVP to events (where the admin has enabled RSVP)</li>
+  <li>See event location, date, time, and current RSVP count</li>
+  <li>RSVP capacity limits are enforced</li>
+</ul>
+
+<h2 id="s4g">4.7 Forum</h2>
+<ul>
+  <li>Browse discussion categories created by the admin</li>
+  <li>Create new topics within a category</li>
+  <li>Reply to existing topics</li>
+  <li>Like or unlike posts</li>
+  <li>Delete your own posts</li>
+</ul>
+
+<h2 id="s4h">4.8 Elections</h2>
+<p>Members can participate in the full election process:</p>
+<ul>
+  <li><strong>Apply</strong> for a position by submitting a manifesto (during the application window)</li>
+  <li>Track application status: Pending / Approved / Rejected</li>
+  <li><strong>Vote</strong> for a candidate (during the voting window) — one vote per position</li>
+  <li>View approved candidates and their manifestos</li>
+  <li>See vote counts after voting ends</li>
+</ul>
+<div class="note"><strong>Important:</strong> Only <em>active members</em> with a valid, paid, non-expired membership can apply for positions or cast votes.</div>
+
+<p>Each election position passes through the following states:</p>
+<table>
+  <thead><tr><th>State</th><th>Meaning</th></tr></thead>
+  <tbody>
+    <tr><td>Upcoming</td><td>Application window has not yet opened</td></tr>
+    <tr><td>Apply Now</td><td>Members can submit their candidacy</td></tr>
+    <tr><td>Under Review</td><td>Applications closed; NEC is reviewing</td></tr>
+    <tr><td>Candidates Announced</td><td>Approved candidates are publicly visible</td></tr>
+    <tr><td>Vote Now</td><td>Voting window is open</td></tr>
+    <tr><td>Election Ended</td><td>Voting closed; results are visible</td></tr>
+  </tbody>
+</table>
+
+<h2 id="s4i">4.9 Committees</h2>
+<ul>
+  <li>View all active committees and their member rosters</li>
+  <li>See each committee's purpose, duration, and chair contact</li>
+  <li>Download committee reports and documents</li>
+</ul>
+
+<h2 id="s4j">4.10 Donations</h2>
+<ul>
+  <li>Browse active fundraising campaigns</li>
+  <li>View campaign progress bars (amount raised vs. target)</li>
+  <li>Donate online via Paystack</li>
+  <li>Option to donate anonymously</li>
+  <li>See campaign deadlines and days remaining</li>
+</ul>
+
+<h2 id="s4k">4.11 Payment History</h2>
+<ul>
+  <li>View a full history of all your membership payment transactions</li>
+  <li>See payment status: Pending / Approved / Rejected</li>
+  <li>View reference numbers and dates</li>
+</ul>
+
+<h2 id="s4l">4.12 Birthday Celebrations</h2>
+<ul>
+  <li>On a member's birthday, their profile card appears on the public home page</li>
+  <li>Visible to all website visitors — no login required</li>
+  <li>Shows: photo, name, job role, department, and a personalised congratulatory message</li>
+  <li>Members must set their Date of Birth in their profile to be included</li>
+</ul>
+
+
+<!-- ═══════════════════════════════════════════
+     SECTION 5
+═══════════════════════════════════════════ -->
+<h1 id="s5" class="section-break">5. Admin Features</h1>
+<p>The Admin has access to all member features plus the full Admin Panel at <strong>/admin/</strong>.</p>
+
+<h2>5.1 Admin Dashboard</h2>
+<p>Live statistics overview including:</p>
+<ul>
+  <li>Total registered users, active members, expired memberships</li>
+  <li>Pending payment approvals count</li>
+  <li>Total revenue collected</li>
+  <li>Active committees count</li>
+  <li>Recent payments table (10 latest)</li>
+  <li>Members by state (top 10 locations)</li>
+  <li>Revenue trend chart — last 6 months</li>
+  <li>New member signups chart — last 6 months</li>
+</ul>
+
+<h2>5.2 User Management</h2>
+<ul>
+  <li>View, search, and paginate all registered users</li>
+  <li>Change any user's role: Member, Financial Secretary, Admin, NEC Member</li>
+  <li><strong>Suspend</strong> a user — requires a reason; suspended users cannot log in</li>
+  <li><strong>Unsuspend</strong> a user to restore access</li>
+  <li>Deactivate or reactivate accounts</li>
+  <li>View user profile details inline</li>
+</ul>
+
+<h2>5.3 Membership Management</h2>
+<ul>
+  <li>View all memberships filtered by: All / Active / Pending / Expired</li>
+  <li>See each member's Membership ID, start date, expiry date, and days remaining</li>
+  <li>Summary count cards at the top of the page</li>
+</ul>
+
+<h2>5.4 Payment Management</h2>
+<ul>
+  <li>View all payment records — online (Paystack) and offline (bank transfer)</li>
+  <li><strong>Approve</strong> offline payments → automatically activates the member's membership and generates their Membership ID</li>
+  <li><strong>Reject</strong> payments with optional notes</li>
+  <li>Resolve disputed payments via the Dispute Resolution tool</li>
+  <li>Manually upload corrected receipts</li>
+  <li>Email notification is sent to the member on approval</li>
+</ul>
+
+<h2>5.5 Financial Reports</h2>
+<ul>
+  <li>Filter by date range</li>
+  <li>Total revenue breakdown: online vs. offline</li>
+  <li>Pending and rejected payment counts</li>
+  <li>Donation campaign revenue totals</li>
+  <li>Member expiry alerts (members expiring within 30 days)</li>
+  <li>Trigger manual stale-account cleanup</li>
+</ul>
+
+<h2>5.6 Announcements Management</h2>
+<ul>
+  <li>Create announcements with title, body, and priority level (Normal / Important / Urgent)</li>
+  <li>Schedule a future publish date/time</li>
+  <li>Set expiry dates so announcements auto-expire</li>
+  <li>Delete announcements</li>
+</ul>
+
+<h2>5.7 Events Management</h2>
+<ul>
+  <li>Create events with title, description, date, and location</li>
+  <li>Enable RSVP with optional capacity limit</li>
+  <li>Delete events</li>
+</ul>
+
+<h2>5.8 Forum Management</h2>
+<ul>
+  <li>Create and manage discussion categories</li>
+  <li>Delete any post or topic (full moderation)</li>
+  <li>Pin important topics</li>
+</ul>
+
+<h2>5.9 Committee Management</h2>
+<ul>
+  <li>Create committees with name, purpose, and start/end dates</li>
+  <li>Add members with roles: Chair, Vice-Chair, Secretary, or Member</li>
+  <li>Remove members from committees</li>
+  <li>Mark committees as Completed or Dissolved</li>
+  <li>Upload and delete committee reports (PDF/document)</li>
+</ul>
+
+<h2>5.10 Donation Campaign Management</h2>
+<ul>
+  <li>Create campaigns with title, description, target amount, and deadline</li>
+  <li>Assign to a specific member (beneficiary) or a named project</li>
+  <li>Toggle donor name visibility (show/hide donors)</li>
+  <li>Close or archive campaigns</li>
+  <li>View all donation transactions per campaign</li>
+</ul>
+
+<h2>5.11 System Settings</h2>
+<p>See <strong>Section 8</strong> for the complete settings reference.</p>
+
+<h2>5.12 Audit Log</h2>
+<ul>
+  <li>Full trail of all system actions performed by all users</li>
+  <li>Search by action type, username, or description</li>
+  <li>Every entry shows: user, action type, description, IP address, timestamp</li>
+  <li>Colour-coded action badges</li>
+  <li>Paginated at 30 entries per page</li>
+</ul>
+
+<h2>5.13 Data Exports</h2>
+<ul>
+  <li><strong>Export Members CSV</strong> — all members with full details (name, email, phone, state, department, membership ID, dates)</li>
+  <li><strong>Export Payments CSV</strong> — payment records filterable by date range and status</li>
+</ul>
+
+
+<!-- ═══════════════════════════════════════════
+     SECTION 6
+═══════════════════════════════════════════ -->
+<h1 id="s6" class="section-break">6. Financial Secretary Features</h1>
+<p>The Financial Secretary accesses the Finance Panel at <strong>/financial/</strong> in addition to all standard member features.</p>
+
+<h2>6.1 Finance Dashboard</h2>
+<ul>
+  <li>Total revenue collected to date</li>
+  <li>Pending payment approvals count (with alert)</li>
+  <li>Online (Paystack) vs. offline (bank transfer) payment split</li>
+  <li>Recent transactions table</li>
+</ul>
+
+<h2>6.2 Payment Verification</h2>
+<ul>
+  <li>View all pending offline payment submissions with uploaded receipts</li>
+  <li><strong>Approve</strong> — membership is activated immediately; member receives an email notification</li>
+  <li><strong>Reject</strong> — recorded with optional notes visible to the member</li>
+  <li>Filter payments by status and date range</li>
+</ul>
+
+<h2>6.3 Dispute Resolution</h2>
+<ul>
+  <li>Clear previously rejected payments</li>
+  <li>Upload corrected/replacement receipt</li>
+  <li>Manually activate membership for resolved cases</li>
+</ul>
+
+<h2>6.4 Financial Reports</h2>
+<p>Same reporting tools as the Admin — date-range filtered revenue breakdown, pending counts, rejection counts, and donation totals.</p>
+
+<h2>6.5 CSV Export</h2>
+<p>Export all payment records to a CSV file for use in Excel or accounting software.</p>
+
+
+<!-- ═══════════════════════════════════════════
+     SECTION 7
+═══════════════════════════════════════════ -->
+<h1 id="s7" class="section-break">7. NEC Member Features</h1>
+<p>NEC (National Executive Committee) members access the NEC Panel at <strong>/nec/</strong> in addition to all standard member features.</p>
+
+<h2>7.1 NEC Dashboard</h2>
+<ul>
+  <li>Total election positions created</li>
+  <li>Pending applications requiring review (alert)</li>
+  <li>Positions currently in the voting window</li>
+  <li>Total votes cast across all elections</li>
+  <li>Full positions table with state, applicant count, vote count, and dates</li>
+</ul>
+
+<h2>7.2 Election Position Management</h2>
+<ul>
+  <li>Create new positions with: title, description, application dates, voting dates</li>
+  <li>Edit position details and dates at any time</li>
+  <li>Publish candidates — makes approved candidates visible to all members for voting</li>
+  <li>Delete positions (only if no votes have been cast)</li>
+</ul>
+
+<h2>7.3 Application Review</h2>
+<ul>
+  <li>View all applications per position with applicant details and full manifesto</li>
+  <li><strong>Approve</strong> an application — the applicant becomes a candidate</li>
+  <li><strong>Reject</strong> an application — with optional reviewer notes</li>
+  <li>Filter applications by position</li>
+  <li>System validates that applicant still has an active membership at time of approval</li>
+</ul>
+
+<h2>7.4 Election Results</h2>
+<ul>
+  <li>View vote counts per candidate for all ended elections</li>
+  <li>Identify the winner (highest vote count)</li>
+  <li><strong>Notify winner</strong> — sends a congratulatory email to the winning candidate</li>
+  <li>Mark results as finalised</li>
+</ul>
+
+
+<!-- ═══════════════════════════════════════════
+     SECTION 8
+═══════════════════════════════════════════ -->
+<h1 id="s8" class="section-break">8. System Settings</h1>
+<p>All settings are managed by the Admin from <strong>Admin Panel → Settings</strong>.</p>
+
+<h2>8.1 Branding</h2>
+<table>
+  <thead><tr><th>Setting</th><th>Description</th></tr></thead>
+  <tbody>
+    <tr><td>Site Name</td><td>Organisation name shown across the system and on the ID card</td></tr>
+    <tr><td>Site Email</td><td>Contact email address</td></tr>
+    <tr><td>Site Phone</td><td>Contact phone number</td></tr>
+    <tr><td>Site Address</td><td>Physical address</td></tr>
+    <tr><td>Logo</td><td>Upload the organisation logo (shown in navbar and on ID card)</td></tr>
+    <tr><td>Favicon</td><td>Upload the browser tab icon</td></tr>
+    <tr><td>Developer URL</td><td>Link shown in the site footer</td></tr>
+  </tbody>
+</table>
+
+<h2>8.2 Social Media Links</h2>
+<table>
+  <thead><tr><th>Setting</th><th>Description</th></tr></thead>
+  <tbody>
+    <tr><td>Facebook URL</td><td>Full URL to the organisation's Facebook page</td></tr>
+    <tr><td>Twitter / X URL</td><td>Full URL to the Twitter/X profile</td></tr>
+    <tr><td>Instagram URL</td><td>Full URL to the Instagram page</td></tr>
+    <tr><td>LinkedIn URL</td><td>Full URL to the LinkedIn page</td></tr>
+    <tr><td>WhatsApp Number</td><td>WhatsApp contact number (international format)</td></tr>
+  </tbody>
+</table>
+
+<h2>8.3 Payment Configuration</h2>
+<table>
+  <thead><tr><th>Setting</th><th>Description</th></tr></thead>
+  <tbody>
+    <tr><td>Paystack Public Key</td><td>From your Paystack dashboard — used on payment forms</td></tr>
+    <tr><td>Paystack Secret Key</td><td>From your Paystack dashboard — used for server-side verification</td></tr>
+    <tr><td>Bank Name</td><td>Bank name shown in offline payment instructions</td></tr>
+    <tr><td>Account Number</td><td>Account number for bank transfers</td></tr>
+    <tr><td>Account Name</td><td>Account name as registered with the bank</td></tr>
+    <tr><td>Membership Fee</td><td>Annual membership fee in Naira (default: ₦5,000)</td></tr>
+  </tbody>
+</table>
+
+<h2>8.4 Email Templates</h2>
+<p>The following email templates can be customised with your own subject lines and message bodies:</p>
+<ul>
+  <li><strong>Welcome Email</strong> — sent to new members on registration</li>
+  <li><strong>Password Reset Email</strong> — sent when a member requests a password reset</li>
+  <li><strong>Two-Factor Authentication Email</strong> — sent with the OTP code</li>
+  <li><strong>Payment Approved Email</strong> — sent to members when their payment is confirmed</li>
+</ul>
+
+<h2>8.5 ID Card Settings</h2>
+<table>
+  <thead><tr><th>Setting</th><th>Description</th></tr></thead>
+  <tbody>
+    <tr><td>Back Content</td><td>Text printed on the back of every member ID card</td></tr>
+    <tr><td>President's Signature</td><td>Upload an image of the president's signature (shown on ID card back)</td></tr>
+  </tbody>
+</table>
+
+<h2>8.6 Organisation Constitution</h2>
+<p>Upload the organisation's constitution as a PDF. Members can download it from the system.</p>
+
+
+<!-- ═══════════════════════════════════════════
+     SECTION 9
+═══════════════════════════════════════════ -->
+<h1 id="s9" class="section-break">9. Security Features</h1>
+
+<table>
+  <thead><tr><th>Feature</th><th>Detail</th></tr></thead>
+  <tbody>
+    <tr><td><strong>Password Hashing</strong></td><td>All passwords are stored using Bcrypt hashing (cost factor 12) — never stored in plain text</td></tr>
+    <tr><td><strong>CSRF Protection</strong></td><td>Every form submission is validated with a unique CSRF token to prevent cross-site request forgery</td></tr>
+    <tr><td><strong>Login Rate Limiting</strong></td><td>5 failed attempts per 15 minutes (per email address and IP address) — prevents brute force attacks</td></tr>
+    <tr><td><strong>Two-Factor Authentication</strong></td><td>Optional email OTP — 6-digit code, expires in 10 minutes</td></tr>
+    <tr><td><strong>Session Security</strong></td><td>Session ID is regenerated on login; cookies are HttpOnly to prevent JavaScript access</td></tr>
+    <tr><td><strong>Password Reset Tokens</strong></td><td>Secure tokenised reset links that expire after 1 hour and are single-use</td></tr>
+    <tr><td><strong>File Upload Validation</strong></td><td>MIME type is checked against the actual file content — not just the file extension</td></tr>
+    <tr><td><strong>SQL Injection Prevention</strong></td><td>All database queries use PDO prepared statements with bound parameters</td></tr>
+    <tr><td><strong>Account Suspension</strong></td><td>Admins can lock accounts with a recorded reason and timestamp</td></tr>
+    <tr><td><strong>Audit Trail</strong></td><td>Every admin action is logged with the user ID, action type, description, IP address, and timestamp</td></tr>
+    <tr><td><strong>Concurrency Protection</strong></td><td>Database transactions with SELECT FOR UPDATE locking prevent duplicate Membership IDs or double votes</td></tr>
+    <tr><td><strong>Automatic Account Cleanup</strong></td><td>Pending accounts older than 7 days with no payment are automatically deleted (runs once per hour)</td></tr>
+    <tr><td><strong>HTTPS Enforcement</strong></td><td>All traffic is redirected to HTTPS automatically in production</td></tr>
+  </tbody>
+</table>
+
+
+<!-- ═══════════════════════════════════════════
+     SECTION 10
+═══════════════════════════════════════════ -->
+<h1 id="s10" class="section-break">10. Membership ID Format</h1>
+
+<p>Every activated member receives a unique Membership ID automatically generated on payment approval. The format is:</p>
+
+<pre>08 / TUN / XXX / 0001</pre>
+
+<table>
+  <thead><tr><th>Segment</th><th>Example</th><th>Meaning</th></tr></thead>
+  <tbody>
+    <tr><td><code>08</code></td><td><code>08</code></td><td>Year code</td></tr>
+    <tr><td><code>TUN</code></td><td><code>TUN</code></td><td>Organisation code</td></tr>
+    <tr><td><code>XXX</code></td><td><code>LAG</code>, <code>ABJ</code>, <code>NAS</code></td><td>3-letter code for the member's Nigerian state</td></tr>
+    <tr><td><code>0001</code></td><td><code>0001</code>, <code>0042</code></td><td>Sequential serial number — increments independently per state</td></tr>
+  </tbody>
+</table>
+
+<div class="note">
+  Membership IDs are permanent, unique, and never reused. They are printed on the member's ID card and encoded in the QR code.
+</div>
+
+<p>Example state codes:</p>
+<table>
+  <thead><tr><th>State</th><th>Code</th><th>State</th><th>Code</th><th>State</th><th>Code</th></tr></thead>
+  <tbody>
+    <tr><td>Lagos</td><td>LAG</td><td>Abuja (FCT)</td><td>ABJ</td><td>Kano</td><td>KAN</td></tr>
+    <tr><td>Nassarawa</td><td>NAS</td><td>Rivers</td><td>RIV</td><td>Ogun</td><td>OGU</td></tr>
+    <tr><td>Enugu</td><td>ENU</td><td>Anambra</td><td>ANA</td><td>Delta</td><td>DEL</td></tr>
+  </tbody>
+</table>
+
+
+<!-- ═══════════════════════════════════════════
+     SECTION 11
+═══════════════════════════════════════════ -->
+<h1 id="s11" class="section-break">11. Permissions Quick Reference</h1>
+
+<p>The table below shows which features are available to each role.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="width:35%">Feature</th>
+      <th style="width:13%;text-align:center">Member</th>
+      <th style="width:13%;text-align:center">Fin. Sec.</th>
+      <th style="width:13%;text-align:center">NEC</th>
+      <th style="width:13%;text-align:center">Admin</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr><td>Register &amp; Login</td><td class="check">&#10003;</td><td class="check">&#10003;</td><td class="check">&#10003;</td><td class="check">&#10003;</td></tr>
+    <tr><td>Member Dashboard</td><td class="check">&#10003;</td><td class="check">&#10003;</td><td class="check">&#10003;</td><td class="check">&#10003;</td></tr>
+    <tr><td>Update Profile</td><td class="check">&#10003;</td><td class="check">&#10003;</td><td class="check">&#10003;</td><td class="check">&#10003;</td></tr>
+    <tr><td>Pay Membership Dues</td><td class="check">&#10003;</td><td class="check">&#10003;</td><td class="check">&#10003;</td><td class="check">&#10003;</td></tr>
+    <tr><td>View &amp; Print ID Card</td><td class="check">&#10003;</td><td class="check">&#10003;</td><td class="check">&#10003;</td><td class="check">&#10003;</td></tr>
+    <tr><td>Member Directory</td><td class="check">&#10003;</td><td class="check">&#10003;</td><td class="check">&#10003;</td><td class="check">&#10003;</td></tr>
+    <tr><td>View Announcements</td><td class="check">&#10003;</td><td class="check">&#10003;</td><td class="check">&#10003;</td><td class="check">&#10003;</td></tr>
+    <tr><td>View Events &amp; RSVP</td><td class="check">&#10003;</td><td class="check">&#10003;</td><td class="check">&#10003;</td><td class="check">&#10003;</td></tr>
+    <tr><td>Use Forum</td><td class="check">&#10003;</td><td class="check">&#10003;</td><td class="check">&#10003;</td><td class="check">&#10003;</td></tr>
+    <tr><td>Apply &amp; Vote in Elections</td><td class="check">&#10003;</td><td class="check">&#10003;</td><td class="check">&#10003;</td><td class="check">&#10003;</td></tr>
+    <tr><td>View Committees</td><td class="check">&#10003;</td><td class="check">&#10003;</td><td class="check">&#10003;</td><td class="check">&#10003;</td></tr>
+    <tr><td>Donate to Campaigns</td><td class="check">&#10003;</td><td class="check">&#10003;</td><td class="check">&#10003;</td><td class="check">&#10003;</td></tr>
+    <tr><td>View Payment History</td><td class="check">&#10003;</td><td class="check">&#10003;</td><td class="check">&#10003;</td><td class="check">&#10003;</td></tr>
+    <tr><td>Approve / Reject Payments</td><td class="dash">—</td><td class="check">&#10003;</td><td class="dash">—</td><td class="check">&#10003;</td></tr>
+    <tr><td>Financial Reports</td><td class="dash">—</td><td class="check">&#10003;</td><td class="dash">—</td><td class="check">&#10003;</td></tr>
+    <tr><td>Export Payments CSV</td><td class="dash">—</td><td class="check">&#10003;</td><td class="dash">—</td><td class="check">&#10003;</td></tr>
+    <tr><td>Resolve Payment Disputes</td><td class="dash">—</td><td class="check">&#10003;</td><td class="dash">—</td><td class="check">&#10003;</td></tr>
+    <tr><td>Create Election Positions</td><td class="dash">—</td><td class="dash">—</td><td class="check">&#10003;</td><td class="check">&#10003;</td></tr>
+    <tr><td>Review Applications</td><td class="dash">—</td><td class="dash">—</td><td class="check">&#10003;</td><td class="check">&#10003;</td></tr>
+    <tr><td>Notify Election Winners</td><td class="dash">—</td><td class="dash">—</td><td class="check">&#10003;</td><td class="check">&#10003;</td></tr>
+    <tr><td>Manage Users &amp; Roles</td><td class="dash">—</td><td class="dash">—</td><td class="dash">—</td><td class="check">&#10003;</td></tr>
+    <tr><td>Suspend / Unsuspend Users</td><td class="dash">—</td><td class="dash">—</td><td class="dash">—</td><td class="check">&#10003;</td></tr>
+    <tr><td>Manage Announcements</td><td class="dash">—</td><td class="dash">—</td><td class="dash">—</td><td class="check">&#10003;</td></tr>
+    <tr><td>Manage Events</td><td class="dash">—</td><td class="dash">—</td><td class="dash">—</td><td class="check">&#10003;</td></tr>
+    <tr><td>Moderate Forum</td><td class="dash">—</td><td class="dash">—</td><td class="dash">—</td><td class="check">&#10003;</td></tr>
+    <tr><td>Manage Committees</td><td class="dash">—</td><td class="dash">—</td><td class="dash">—</td><td class="check">&#10003;</td></tr>
+    <tr><td>Manage Donation Campaigns</td><td class="dash">—</td><td class="dash">—</td><td class="dash">—</td><td class="check">&#10003;</td></tr>
+    <tr><td>System Settings</td><td class="dash">—</td><td class="dash">—</td><td class="dash">—</td><td class="check">&#10003;</td></tr>
+    <tr><td>View Audit Log</td><td class="dash">—</td><td class="dash">—</td><td class="dash">—</td><td class="check">&#10003;</td></tr>
+    <tr><td>Export Members CSV</td><td class="dash">—</td><td class="dash">—</td><td class="dash">—</td><td class="check">&#10003;</td></tr>
+  </tbody>
+</table>
+
+<div class="doc-footer">
+  TUNEDIK Alumni Management System — Documentation v1.0 &nbsp;|&nbsp; alumni.wedev.com.ng &nbsp;|&nbsp; April 2026
+</div>
+
+</body>
+</html>
